@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp5
@@ -10,19 +12,27 @@ namespace ConsoleApp5
     {
         void AddOrder(Order order);
         void CancelOrder(Order order);
-        List<Order> GetOrders();
+        void GetOrders();
     }
     class OrderServise : IOrderService
     {
+        List<Order> orders = new List<Order>();
         public void AddOrder(Order order)
         {
-
+            orders.Add(order);
         }
         public void CancelOrder(Order order)
         {
-
+            orders.Remove(order);
         }
-        List<Order> orders = new List<Order>();
+        public void GetOrders()
+        {
+            foreach (Order order in orders)
+            {
+                int tp = order.CalculateTotalPrice();
+                Console.WriteLine($"{order.customer.Cname}\n\tТовар:\n\t   * {order.product.Pname} x {order.Oquantity}\n\tИтоговая стоимость: {tp}\n");
+            }
+        }
     }
     class Product
     {
@@ -48,8 +58,8 @@ namespace ConsoleApp5
     }
     class Order
     {
-        Product product;
-        Customer customer;
+        public Product product;
+        public Customer customer;
         public int Oquantity;
         public Order(Product product, Customer customer, int Oquantity)
         {
@@ -57,28 +67,43 @@ namespace ConsoleApp5
             this.customer = customer;
             this.Oquantity = Oquantity;
         }
-        public void CalculateTotalPrice()
+        public int CalculateTotalPrice()
         {
             if (Oquantity <= product.quantity)
             {
-                Console.WriteLine($"Итоговая цена: {Oquantity * product.price}");
+                return Oquantity * product.price;
             }
             else
             {
-                Console.WriteLine("Заказ отменён");
+                return 0;
             }
+        }
+    }
+    struct Address
+    {
+        string street;
+        string city;
+        int zipCode;
+
+        public void Print()
+        {
+            Console.WriteLine($"ул. {street}, г. {city}, {zipCode}");
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
+            OrderServise orderServise = new OrderServise();
             Product guitar = new Product("Шедевро-гитара", 100, 42);
             Product lWing = new Product("Левое крыло самолёта Airbus A319", 999999, 2);
             Customer tosha = new Customer("Анатолий Лизогуб", "stopPostingAbout@among.us");
             Customer vitya = new Customer("Виталя Подливкин", "GNAAmaster@yandex.ru");
-            Order orderTosha = new Order(guitar, tosha, 2);
-            orderTosha.CalculateTotalPrice();
+            Order orderTosha = new Order(guitar, tosha, 5);
+            Order orderVitya = new Order(lWing, vitya, 1);
+            orderServise.AddOrder(orderTosha);
+            orderServise.AddOrder(orderVitya);
+            orderServise.GetOrders();
 
             Console.ReadKey();
         }

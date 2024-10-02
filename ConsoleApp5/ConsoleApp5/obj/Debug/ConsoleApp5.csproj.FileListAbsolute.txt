@@ -5,3 +5,10 @@ C:\Users\ZolotarevNI\source\repos\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.
 C:\Users\ZolotarevNI\source\repos\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.pdb
 C:\Users\ZolotarevNI\source\repos\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.exe
 C:\Users\ZolotarevNI\source\repos\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.pdb
+C:\Users\НИКИТА\Source\Repos\OnlineShop\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe.config
+C:\Users\НИКИТА\Source\Repos\OnlineShop\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.exe
+C:\Users\НИКИТА\Source\Repos\OnlineShop\ConsoleApp5\ConsoleApp5\bin\Debug\ConsoleApp5.pdb
+C:\Users\НИКИТА\Source\Repos\OnlineShop\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.csproj.AssemblyReference.cache
+C:\Users\НИКИТА\Source\Repos\OnlineShop\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.csproj.CoreCompileInputs.cache
+C:\Users\НИКИТА\Source\Repos\OnlineShop\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.exe
+C:\Users\НИКИТА\Source\Repos\OnlineShop\ConsoleApp5\ConsoleApp5\obj\Debug\ConsoleApp5.pdb
